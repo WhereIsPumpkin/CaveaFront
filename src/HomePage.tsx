@@ -44,7 +44,7 @@ function App() {
 
   return (
     <div className="container mt-5">
-      <h1 className="text-center mb-4">Inventory Management</h1>
+      <h1 className="text-center mb-4">ინვენტარის მართვა</h1>
       <div className="d-flex justify-content-end mb-4">
         <Button variant="primary" href="/add">ნივთის დამატება</Button>
       </div>
@@ -57,12 +57,12 @@ function App() {
             value={locationFilter}
             onChange={e => setLocationFilter(e.target.value)}
           >
-            <option value="all">ყველა</option>
-            <option value="mainOffice">მთავარი ოფისი</option>
-            <option value="caveaGallery">კავეა გალერია</option>
-            <option value="caveaTbilisiMall">კავეა თბილისი მოლი</option>
-            <option value="caveaEastPoint">კავეა ისთ ფოინთი</option>
-            <option value="caveaCityMall">კავეა სითი მოლი</option>
+            <option value="">ყველა</option>
+            <option value="მთავარი ოფისი">მთავარი ოფისი</option>
+            <option value="კავეა გალერია">კავეა გალერია</option>
+            <option value="კავეა თბილისი მოლი">კავეა თბილისი მოლი</option>
+            <option value="კავეა ისთ ფოინთი">კავეა ისთ ფოინთი</option>
+            <option value="კავეა სითი მოლი">კავეა სითი მოლი</option>
             
           </select>
         </div>
@@ -71,14 +71,14 @@ function App() {
             variant={sortBy === 'name' ? 'primary' : 'secondary'}
             onClick={() => setSortBy('name')}
           >
-            Sort by name
+            დალაგება სახელით
           </Button>
           <Button
             variant={sortBy === 'price' ? 'primary' : 'secondary'}
             onClick={() => setSortBy('price')}
             className="ms-2"
           >
-            Sort by price
+            დალაგება ფასით
           </Button>
         </div>
       </div>
@@ -87,7 +87,7 @@ function App() {
           <tr>
             <th>ნივთის სახელი</th>
             <th>ნივთის ადგილმდებარეობა</th>
-            <th>ფასი (ლარებში)</th>
+            <th>ფასი</th>
             <th>ოპერაციები</th>
           </tr>
         </thead>
@@ -96,7 +96,7 @@ function App() {
             <tr key={index}>
               <td>{item.name}</td>
               <td>{item.location}</td>
-              <td>{item.price}</td>
+              <td>{item.price}₾</td>
               <td><Button variant="danger" onClick={() => handleDelete(item.id)}>წაშლა</Button></td>
             </tr>
           ))}
