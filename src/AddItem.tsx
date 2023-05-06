@@ -19,7 +19,7 @@ const AddItem = () => {
       return;
     }
 
-    axios.post('http://127.0.0.1:4444/inventories', { location, name, price })
+    axios.post('https://inventorybackend-qmyj.onrender.com/inventories', { location, name, price })
       .then(() => {
         navigate('/');
       });
